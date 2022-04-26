@@ -4,8 +4,8 @@
              x:Class="ReneTravez.Login">
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-                <Label Text="Semana 3" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">              
+                <Image Source="https://sbsconsulting.com.ec/wp-content/uploads/2018/01/LOGO-UISRAEL-768x209.png"></Image>
             </Frame>
             <Entry x:Name="txtUsuario" Placeholder="Usuario"></Entry>
             <Entry x:Name="txtContrasenia" Placeholder="Contraseña" IsPassword="true"></Entry>

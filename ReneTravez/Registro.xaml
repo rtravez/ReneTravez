@@ -8,8 +8,8 @@
 
                 <StackLayout>
                     <Frame BackgroundColor="#2196F3">
-                        <Label Text="Universidad Israel" HorizontalTextAlignment="Center" TextColor="White" FontSize="Title"/>
-                    </Frame>
+                    <Image Source="https://sbsconsulting.com.ec/wp-content/uploads/2018/01/LOGO-UISRAEL-768x209.png"></Image>
+                </Frame>
                     <Frame BackgroundColor="#2196F3">
                         <Label x:Name="lblUsuario"  HorizontalTextAlignment="End" TextColor="White" FontSize="Subtitle"/>
                     </Frame>

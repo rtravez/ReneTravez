@@ -15,31 +15,33 @@ namespace ReneTravez
         Double valorTotal = 1800;
         Double valorPendiente = 0;
         Double valorMensual = 0;
+        Double valorTotalDiferido = 0;
         String user;
         public Registro(string user, string pass)
         {
             InitializeComponent();
             lblUsuario.Text = "Usuario: " + user;
             this.user = user;
-            
+
         }
 
         private void btnCalcular_Clicked(object sender, EventArgs e)
         {
-            valorPendiente = valorTotal - Convert.ToDouble(txtMontoInicial.Text);
-
-            valorMensual = valorPendiente / 3;            
-            txtPagoMensual.Text = Convert.ToString(valorMensual * 0.5);
-
-
-
+            if (!this.validarFormulario())
+            {
+                valorPendiente = valorTotal - Convert.ToDouble(txtMontoInicial.Text);
+                valorMensual = valorPendiente / 3;
+                txtPagoMensual.Text = Convert.ToString((valorMensual * 0.5) + valorMensual);
+                valorTotalDiferido = ((valorMensual * 0.5) + valorMensual) * 3;
+            }
         }
 
         private async void btnGuardar_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Información", "Elemento guardado con exito", "Cerrar");
-            await Navigation.PushAsync(new Resumen(user, txtNombre.Text, Convert.ToDouble(txtPagoMensual.Text)));
-            
+           
+            await Navigation.PushAsync(new Resumen(user, txtNombre.Text, valorTotalDiferido));
+            await DisplayAlert("Información", "Elemento guardado con exito", "Cerrar");
+
 
         }
 
@@ -53,10 +55,26 @@ namespace ReneTravez
 
             if (Convert.ToDouble(txtMontoInicial.Text) < 0 || Convert.ToDouble(txtMontoInicial.Text) > 1800)
             {
-
                 DisplayAlert("Error", "El campo monto inicial debe ser mayor a cero y menor igual a 1800", "Atrás");
                 return;
             }
+        }
+
+        private bool validarFormulario()
+        {
+            if (String.IsNullOrEmpty(txtMontoInicial.Text))
+            {
+                DisplayAlert("Error", "El campo monto inicial es obligatorio", cancel: "Atrás");
+                return true;
+            }
+
+            if (String.IsNullOrEmpty(txtNombre.Text))
+            {
+                DisplayAlert("Error", "El campo nombre es obligatorio", cancel: "Atrás");
+                return true;
+            }
+
+            return false;
         }
     }
 }
