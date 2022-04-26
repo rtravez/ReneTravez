@@ -62,17 +62,19 @@ namespace ReneTravez
 
         private bool validarFormulario()
         {
+            if (String.IsNullOrEmpty(txtNombre.Text))
+            {
+                DisplayAlert("Error", "El campo nombre es obligatorio", cancel: "Atrás");
+                return true;
+            }
+
             if (String.IsNullOrEmpty(txtMontoInicial.Text))
             {
                 DisplayAlert("Error", "El campo monto inicial es obligatorio", cancel: "Atrás");
                 return true;
             }
 
-            if (String.IsNullOrEmpty(txtNombre.Text))
-            {
-                DisplayAlert("Error", "El campo nombre es obligatorio", cancel: "Atrás");
-                return true;
-            }
+            
 
             return false;
         }
