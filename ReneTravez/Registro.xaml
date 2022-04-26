@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReneTravez.Registro">
+    
+        <ContentPage.Content>
+            <ScrollView>
+
+                <StackLayout>
+                    <Frame BackgroundColor="#2196F3">
+                        <Label Text="Universidad Israel" HorizontalTextAlignment="Center" TextColor="White" FontSize="Title"/>
+                    </Frame>
+                    <Frame BackgroundColor="#2196F3">
+                        <Label x:Name="lblUsuario"  HorizontalTextAlignment="End" TextColor="White" FontSize="Subtitle"/>
+                    </Frame>
+                    <Label Text="Registro" TextColor="Black" FontSize="Body" HorizontalTextAlignment="Center" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition  />
+                        <RowDefinition  />
+                        <RowDefinition  />                        
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Nombre" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" VerticalOptions="Start"></Label>
+                    <Entry Grid.Column="1" Grid.Row="0" x:Name="txtNombre" Placeholder="Ingrese nombre" Keyboard="Text"   PlaceholderColor="Olive" />
+
+                    <Label Text="Monto inicial" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Start" VerticalOptions="Start"></Label>
+                    <Entry Grid.Column="1" Grid.Row="1" x:Name="txtMontoInicial" Placeholder="Ingrese monto inicial" Keyboard="Numeric" TextChanged="txtMontoInicial_TextChanged"    PlaceholderColor="Olive" />
+
+                    <Label Text="Pago mensual" Grid.Row="2" Grid.Column="0"  HorizontalOptions="Start" VerticalOptions="Start"></Label>
+                    <Entry Grid.Column="1" Grid.Row="2" x:Name="txtPagoMensual"  Keyboard="Numeric" IsEnabled="False" />
+
+                    
+                </Grid>
+                <Button  x:Name="btnCalcular" Text="Calcular" Clicked="btnCalcular_Clicked" />
+                <Button  x:Name="btnGuardar" Text="Guardar" Clicked="btnGuardar_Clicked" />
+
+
+
+            </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+</ContentPage>
